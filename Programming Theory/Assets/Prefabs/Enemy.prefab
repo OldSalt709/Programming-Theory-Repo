@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5868106858993462487}
   - component: {fileID: 5868106858993462486}
   - component: {fileID: 5868106858993462489}
-  - component: {fileID: 5868106858993462488}
+  - component: {fileID: 5746598818668894769}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -115,7 +115,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &5868106858993462488
+--- !u!114 &5746598818668894769
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -127,4 +127,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e45b1862e088a84ba42e37bf1025747, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyRb: {fileID: 0}
+  targetPlayer: {fileID: 0}
+  speed: 2
   wreckedVersion: {fileID: 698507707222988152, guid: ca6ee199351e7eb41bab973de7b19a24, type: 3}
+  lookDirection: {x: 0, y: 0, z: 0}
+  randomTarget:
+  - {fileID: 0}

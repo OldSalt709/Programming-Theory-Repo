@@ -4,29 +4,40 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    private Rigidbody enemyRb;
-    private GameObject targetPlayer;
-    private float speed = 2.0f;
+    [SerializeField] private Rigidbody enemyRb;
+    [SerializeField] private GameObject targetPlayer;
+    [SerializeField] private float speed = 2.0f;
     [SerializeField] private GameObject wreckedVersion;
+    [SerializeField] private Vector3 lookDirection;
+    private GameObject[] randomTarget;
+
+    private GameManager gameManager;
 
     // Start is called before the first frame update
     void Start()
     {
-        targetPlayer = GameObject.FindGameObjectWithTag("Player");
-        enemyRb = GetComponent<Rigidbody>();
+        StartComponents();
     }
 
     // Update is called once per frame
     void Update()
     {
-        Vector3 lookDirection = (targetPlayer.transform.position - transform.position).normalized;
-        enemyRb.AddForce(lookDirection * speed);
-        
-        if (transform.position.y < 0)
+        MoveTowardsTurret();
+        randomTarget = GameObject.FindGameObjectsWithTag("Player");
+        int targetIndex = Random.Range(0, randomTarget.Length);
         {
-            Destroy(gameObject);
+            for (int i = 0; i < targetIndex; i++)
+            {
+                
+            }
         }
-        
+    }
+
+    private void StartComponents()
+    {
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        targetPlayer = GameObject.FindGameObjectWithTag("Player");
+        enemyRb = GetComponent<Rigidbody>();
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -35,6 +46,17 @@ public class Enemy : MonoBehaviour
         {
             Destroy(gameObject);
             Instantiate(wreckedVersion, transform.position, transform.rotation);
+            gameManager.isGameActive = false;
+        }
+    }
+
+    public virtual void MoveTowardsTurret()
+    {
+        lookDirection = (targetPlayer.transform.position - transform.position).normalized;
+        enemyRb.AddForce(lookDirection * speed);
+        if (transform.position.y < 0)
+        {
+            Destroy(gameObject);
         }
     }
 }

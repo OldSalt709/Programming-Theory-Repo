@@ -23,7 +23,7 @@ public class Explosion : MonoBehaviour
             {
                 if (col.CompareTag("Enemy"))
                 {
-                    Destroy(col.gameObject, 1);
+                    Destroy(col.gameObject, 0.5f);
                     //Instantiate(wreckedVersion, col.transform.position, col.transform.rotation);
                 }
                 col.GetComponent<Rigidbody>().AddExplosionForce(force, transform.position, radius, force * 0.5f, ForceMode.Impulse);

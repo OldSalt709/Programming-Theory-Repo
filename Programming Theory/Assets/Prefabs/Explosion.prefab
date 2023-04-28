@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -3416056407617502371}
   m_Layer: 0
   m_Name: Explosion
-  m_TagString: Untagged
+  m_TagString: Explosion
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4933,4 +4933,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wreckedVersion: {fileID: 698507707222988152, guid: ca6ee199351e7eb41bab973de7b19a24, type: 3}
   radius: 1
-  force: 100
+  force: 20
