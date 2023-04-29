@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class BallFast : BallBase
 {
+    // POLYMORPHISM
+    // Overrides speed and score value of parent class 
     private int twoApparently = 2;
     private int fastScore = 10;
     public override void AddScore()

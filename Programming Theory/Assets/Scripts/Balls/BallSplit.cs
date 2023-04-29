@@ -6,8 +6,12 @@ public class BallSplit : BallBase
 {
     public override void StartComponents()
     {
-        speed *= MainManager.Instance.difficulty;
+        if (MainManager.Instance != null)
+        {
+            speed *= MainManager.Instance.difficulty;
+        }
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+
         Destroy(gameObject, 5f);
     }
     // Start is called before the first frame update

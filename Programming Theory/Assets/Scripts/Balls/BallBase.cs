@@ -4,14 +4,16 @@ using UnityEngine;
 
 public class BallBase : MonoBehaviour
 {
+    // INHERITANCE
+    // All Ball are child classes of BallBase
     public int pointValue = 10;
     public GameManager gameManager;
     private float xSpawnRange = 3f;
     private float ySpawnPosition = 4f;
 
     /// <summary>
-    /// Encapsulation example 
-    /// replaced course code example with Mathf.Max so it chooses the higher of the two numbers. 
+    /// ENCAPSULATION example 
+    /// replaced course code example (ref00) with Mathf.Max so it chooses the higher of the two numbers. 
     /// Basically a minimum speed.
     /// </summary>
     private float m_speed = 1f;
@@ -21,7 +23,7 @@ public class BallBase : MonoBehaviour
         set 
         {
             m_speed = Mathf.Max(1.0f, value); 
-            /* 
+            /* (ref00)
             if (value < 0.0f)
             {
                 Debug.LogError("I'm afraid I can't let you do that Dave...");
@@ -58,6 +60,7 @@ public class BallBase : MonoBehaviour
         }
     }
 
+    //ABSTRACTION?? I think this is an example..
     Vector3 RandomSpawnPosition()
     {
         return new Vector3(Random.Range(-xSpawnRange, xSpawnRange), ySpawnPosition);
@@ -82,7 +85,10 @@ public class BallBase : MonoBehaviour
 
     public virtual void StartComponents()
     {
-        speed *= MainManager.Instance.difficulty;
+        if (MainManager.Instance != null)
+        {
+            speed *= MainManager.Instance.difficulty;
+        }
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         transform.position = RandomSpawnPosition();
         Destroy(gameObject, 5f);
