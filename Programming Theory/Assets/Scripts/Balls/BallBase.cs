@@ -8,7 +8,31 @@ public class BallBase : MonoBehaviour
     public GameManager gameManager;
     private float xSpawnRange = 3f;
     private float ySpawnPosition = 4f;
-    public float speed = 1f;
+
+    /// <summary>
+    /// Encapsulation example 
+    /// replaced course code example with Mathf.Max so it chooses the higher of the two numbers. 
+    /// Basically a minimum speed.
+    /// </summary>
+    private float m_speed = 1f;
+    public float speed
+    {
+        get { return m_speed; }
+        set 
+        {
+            m_speed = Mathf.Max(1.0f, value); 
+            /* 
+            if (value < 0.0f)
+            {
+                Debug.LogError("I'm afraid I can't let you do that Dave...");
+            }
+            else
+            {
+                m_speed = value;
+            }
+            */
+        }
+    }
 
     // Start is called before the first frame update
     void Start()
