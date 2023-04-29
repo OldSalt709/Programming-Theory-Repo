@@ -5,8 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Ground
-  - Explosion
-  - Enemy
+  - Ball
   layers:
   - Default
   - TransparentFX

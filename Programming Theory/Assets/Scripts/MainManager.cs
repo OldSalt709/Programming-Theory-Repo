@@ -7,8 +7,10 @@ public class MainManager : MonoBehaviour
 {
     // variables for current session
     public string playerName;
+    public float difficulty;
 
-    public static MainManager Instance;
+
+    public static MainManager Instance { get; private set; }
 
     private void Awake()
     {
